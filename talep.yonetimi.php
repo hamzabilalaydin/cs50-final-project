@@ -20,34 +20,32 @@ if (isset($_POST['talepid_form'])) {
 }
 
 ?>
-
-<div class='row text-center'>
-  <h1 class='alert alert-primary'>Talep Yönetimi</h1>
+<div class="container">
+  <div class='row text-center'>
+    <h1 class='alert alert-warning'>Talep Yönetimi</h1>
+  </div>
+  
+  <table class="table table-bordered table-dark table-hover table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Talep Tarihi<br>Öncelik<br>Durum</th>
+        <th>Talep Eden</th>
+        <th>Talebi</th>
+        <th>İşlem</th>
+      </tr>
+    </thead>
+    <tbody>
 </div>
+      
+<?php
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Talep Tarihi<br>Öncelik<br>Durum</th>
-      <th>Talep Eden<br>Unvan<br>Birimi<br>Telefonu</th>
-      <th>Talebi</th>
-      <th>İşlem</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <?php
-
-    $SORGU = $DB->prepare("
+$SORGU = $DB->prepare("
                 SELECT 
                   talepler.*, 
-                  kullanicilar.adsoyad, 
-                  kullanicilar.unvan, 
-                  kullanicilar.birim, 
-                  kullanicilar.telefon, 
+                  kullanicilar.adsoyad,   
                   birimler.birimadi
-                FROM 
+                  FROM 
                   birimler, talepler, kullanicilar
                 WHERE 
                   talepler.talepeden = kullanicilar.id AND
@@ -77,9 +75,6 @@ if (isset($_POST['talepid_form'])) {
           {$Durum}<br>
       </td>
       <td>{$talep['adsoyad']}<br>
-          {$talep['unvan']}<br>
-          {$talep['birim']}<br>
-          {$talep['telefon']}<br>
           </td> 
       <td>{$TALEBI}<br><b style='color:darkred;'>{$talep['islemnotu']}</b></td>
       <td>";

@@ -25,7 +25,7 @@ if (isset($_POST['adsoyad_form'])) {
 
   // die(date("H:i:s"));
   $SORGU->execute();
-  echo "Kullanıcı güncellendi...";
+  echo "<i><b>User Updated...</b></i>";
 }
 
 $id    = $_GET['id'];
@@ -40,7 +40,6 @@ $SORGU->execute();
 $kullanicilar = $SORGU->fetchAll(PDO::FETCH_ASSOC);
 $kullanici  = $kullanicilar[0];
 
-// echo "<pre>"; print_r($kullanicilar);
 ?>
 
 
@@ -48,20 +47,20 @@ $kullanici  = $kullanicilar[0];
   <div class="offset-3 col-6">
 
     <div class='row text-center'>
-      <h1 class='alert alert-primary'>Kayıt Ekleme</h1>
+      <h1 class='alert' style='background-color: #DAC0A3; color: #0F2C59'>Update User</h1>
     </div>
 
     <form method="POST">
         <div class="mb-3">
           <label for="adsoyad" class="form-label">Kullanıcı Adı:</label>
-          <input type="text" name='adsoyad_form' class="form-control" value='<?php echo $kullanici['adsoyad'];  ?>' id="adsoyad" aria-describedby="emailHelp">
+          <input type="text" name='adsoyad_form' class="form-control" style='background-color: #DAC0A3' value='<?php echo $kullanici['adsoyad'];  ?>' id="adsoyad" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
           <label for="eposta" class="form-label">Eposta:</label>
-          <input type="email" name='eposta_form' class="form-control" value='<?php echo $kullanici['eposta']; ?>' id="eposta">
+          <input type="email" name='eposta_form' class="form-control" style='background-color: #DAC0A3' value='<?php echo $kullanici['eposta']; ?>' id="eposta">
         </div>
-          <button type="submit" class="btn btn-primary">Güncelle</button>
-          <a href='list.php' class='btn btn-warning'>Geri Dön</a>
+          <button type="submit" class="btn text-white" style='background-color: #0F2C59'>Update</button>
+          <a href='list.php' class='btn text-white' style='background-color: #0F2C59'>Back</a>
     </form>
 
   </div>

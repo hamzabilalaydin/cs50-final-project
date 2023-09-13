@@ -4,18 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bizim Şirket</title>
+  <title>My Bookstore</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 
-<body>
-<br><br>
+<body style='background-color: #F8F0E5'>
+<br>
   <div class='container'>
 
     <div class='row text-center'>
-      <h1><a href='index.php' style='text-decoration:none'>İntranet Sayfamız</a></h1>
-      <h5><?php echo $_SESSION['adsoyad']; ?></h5>
-      <div class='row text-end'>
-        <p><a href='logout.php' class="btn btn-danger btn-sm"> Oturumu Kapat </a></p>
+      <h1><a href='index.php' style='text-decoration:none; color: #0F2C59 '>My Bookstore</a></h1>
+      <h5 style='color:#C08261'><?php echo $_SESSION['adsoyad']; ?></h5>
+      <div class='text-end'>
+        <p><a href='logout.php' class="btn btn-sm text-white" style='background-color: #A73121'> Logout </a></p>
       </div>
+      <hr>
     </div>

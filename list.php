@@ -4,25 +4,17 @@ require 'yetki.kontrol.php';
 require 'sayfa.ust.php'; ?>
 
 <div class='row text-center'>
-  <h1 class='alert alert-primary'>Personel Yönetimi</h1>
+  <h1 class='alert alert-danger'>My Users</h1>
 </div>
 
-<div class='row text-end'>
-  <p><a href='insert.php' class="btn btn-primary btn-sm "> Yeni Personel Ekle </a></p>
-</div>
-
-
-<table class="table table-bordered table-striped">
+<table class="table table-secondary table-bordered table-striped">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Adı Soyadı</th>
-      <th>ePosta Adresi</th>
-      <th>Unvanı</th>
-      <th>Birimi</th>
-      <th>Telefonu</th>
-      <th>Güncelle</th>
-      <th>Sil</th>
+
+      <th>Name</th>
+      <th>Email</th>
+      <th>Update</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -42,14 +34,10 @@ require 'sayfa.ust.php'; ?>
     foreach ($kullanicilar as $kullanici) {
       echo "
     <tr>
-      <th>{$kullanici['id']}</th>
       <td>{$kullanici['adsoyad']}</td>
       <td>{$kullanici['eposta']}</td>
-      <td>{$kullanici['unvan']}</td>
-      <td>{$kullanici['birim']}</td>
-      <td>{$kullanici['telefon']}</td>
-      <td><a href='update.php?id={$kullanici['id']}' class='btn btn-success btn-sm'>Güncelle</a></td>
-      <td><a href='delete.php?id={$kullanici['id']}' class='btn btn-danger btn-sm'>Sil</a></td>
+      <td><a href='update.php?id={$kullanici['id']}' class='btn btn-success btn-sm'>Update</a></td>
+      <td><a href='delete.php?id={$kullanici['id']}' class='btn btn-danger btn-sm'>Delete</a></td>
    </tr> 
   ";
     }
@@ -60,10 +48,8 @@ require 'sayfa.ust.php'; ?>
 </table>
 
 
-
-
 <div class='text-center'>
-  <a href='index.php' class='btn btn-warning'>ANASAYFAYA</a>
+  <a href='index.php' class='btn text-white' style='background-color: #0F2C59;'>MAIN PAGE</a>
 </div>
 
 <?php require 'sayfa.alt.php'; ?>

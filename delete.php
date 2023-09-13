@@ -4,7 +4,12 @@ require 'yetki.kontrol.php';
 require 'sayfa.ust.php';
 
 if ($_SESSION['id'] == $_GET['id']) {
-  echo "<h1>Kendinizi silemezsiniz!</h1>";
+  echo "<h1>Can Not Delete Yourself :)</h1>
+  <div class='row text-start'>
+    <p><a href='list.php' class='btn btn-warning btn-md'> Back </a></p>
+  </div>
+  ";
+  
   die();
 }
 
@@ -18,11 +23,11 @@ $SORGU = $DB->prepare($sql);
 $SORGU->bindParam(':id', $id);
 
 $SORGU->execute();
-echo "Kullanıcı silindi...";
+echo "User Deleted...";
 ?>
 
 <div class='row text-start'>
-  <p><a href='list.php' class="btn btn-primary btn-sm"> Geri Dön </a></p>
+  <p><a href='list.php' class="btn btn-primary btn-sm"> Back </a></p>
 </div>
 
 <?php require 'sayfa.alt.php'; ?>

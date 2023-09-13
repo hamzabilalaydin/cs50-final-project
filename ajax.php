@@ -8,25 +8,22 @@ if (isset($_GET['isim_form'])) {
   $Aranan = "";
 }
 
-$sql = "SELECT * FROM kullanicilar 
+$sql = "SELECT * FROM books 
         WHERE 
-          adsoyad LIKE :isim_form OR
-          unvan   LIKE :isim_form OR
-          birim   LIKE :isim_form OR
-          telefon LIKE :isim_form
-        LIMIT 100";
+          title LIKE :isim_form OR
+          authors LIKE :isim_form
+        LIMIT 50";
 $SORGU = $DB->prepare($sql);
 $SORGU->bindParam(':isim_form', $Aranan);
 $SORGU->execute();
-$kullanicilar = $SORGU->fetchAll(PDO::FETCH_ASSOC);
+$books = $SORGU->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($kullanicilar as $kullanici) {
+foreach ($books as $book) {
   echo "
   <tr>
-    <td>{$kullanici['adsoyad']}</td>
-    <td>{$kullanici['unvan']}</td>
-    <td>{$kullanici['birim']}</td>
-    <td>{$kullanici['telefon']}</td>
+    <td>{$book['title']}</td>
+    <td>{$book['authors']}</td>
+    <td><a href='submit_review.php?id={$book['id']}' class='btn btn-warning btn-sm'>Add</a></td>
   </tr>
   ";
 }
