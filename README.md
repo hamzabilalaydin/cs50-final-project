@@ -2,6 +2,7 @@
 #### Video Demo:  https://www.youtube.com/watch?v=bbWgkWhqY2s
 #### Description: In this project i wanted to make a website that people can save books they are reading and making them some comments.
 
+```
  in register.php i can take user name email and password and store them in my database
  in login.php we can login with stored  data in database
  in login_kontrol.php i control is user logged in if not i redirect them to login page
@@ -14,3 +15,4 @@
  on index page we have two button where our addded books one for update one for delete
  update button redirect us to revise.php and there we can rewrite our review and submit again, delete button simply deletes the book
  i have sayfa_alt.php and sayfa_ust.php they are upper and lower sides of the page, they are like fremaworks.and my logout button logs out from the websiteS  
+```
