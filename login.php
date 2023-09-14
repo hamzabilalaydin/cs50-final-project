@@ -65,11 +65,11 @@ if (isset($_POST['eposta_form'])) {
 
     <form method="POST">
         <div class="mb-3">
-          <label for="eposta" class="form-label" autocomplete='off'style='color: #0F2C59' >Email</label>
+          <label for="eposta" class="form-label" autocomplete='off'style='color: #0F2C59'><b>Email</b></label>
           <input type="text" name='eposta_form' class="shadow-lg form-control" id="eposta" style='background-color: #DAC0A3' aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-          <label for="parola" class="form-label" style='color: #0F2C59'>Password</label>
+          <label for="parola" class="form-label" style='color: #0F2C59'><b>Password</b></label>
           <input type="password" name='parola_form' class="shadow-lg form-control" id="parola" style='background-color: #DAC0A3'>
         </div>
         <div>

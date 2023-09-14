@@ -7,7 +7,7 @@ require_once('db.php');
 <!-- YETKİLİ KİŞİLER MENÜSÜ -->
 <?php if ($_SESSION['rol'] == 2) { ?>
   <div class='container'>
-    <div class='row'>
+    <div class=''>
       <div class='text-center'>
         <p><a href='list.php' class="btn" style='background-color: #FF9F9F'> Users </a></p>
       </div>
@@ -18,21 +18,23 @@ require_once('db.php');
 <?php 
 $my_id = $_SESSION['id'];
 
-$sql = "SELECT books.id, books.title , review.review FROM review JOIN books ON review.books_id = books.id WHERE kullanici_id = :kullanici_id";
+$sql = "SELECT * FROM review JOIN books ON review.books_id = books.id WHERE kullanici_id = :kullanici_id";
 $SORGU = $DB->prepare($sql);
 $SORGU->bindParam(':kullanici_id',  $my_id);
 $SORGU->execute();
 $REVIEW = $SORGU->fetchAll(PDO::FETCH_ASSOC);
 
-?>
 
-<!-- KULLANICILAR MENÜSÜ -->
+//<!-- KULLANICILAR MENÜSÜ -->
+echo "
+  <div class='row text-center'>
+    <p><a href='rehber.php' class='btn text-white' style='background-color: #0F2C59'> Search </a></p>
+  </div>
+  <div class='row text-center'>
+    <p><a href='update_password.php?id={$my_id}' class='btn text-white' style='background-color: #0F2C59'> Change Password </a></p>
+  </div>
+";
 
-    <div class='row text-center'>
-      <p><a href='rehber.php' class="btn text-white" style='background-color: #0F2C59'> Search </a></p>
-    </div>
-
-  <?php
   foreach($REVIEW as $key => $my_review){
     // Generate unique IDs for each accordion item
     $accordion_id = "accordionItem" . $key;
@@ -58,7 +60,7 @@ $REVIEW = $SORGU->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class='col-2 p-2'>
           <a href='revise.php?id={$book_id}' class='btn ms-2 btn-secondary text-end'>Update</a>
-          <a href='' class='btn ms-2 text-end text-white' style='background-color: #0F2C59;'>Delete</a>
+          <a href='book_delete.php?id={$book_id}' class='btn ms-2 text-end text-white' style='background-color: #0F2C59;'>Delete</a>
         </div>
       </div>
     </div>

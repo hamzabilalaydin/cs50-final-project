@@ -6,13 +6,14 @@ require_once('db.php');
 $user_id = $_SESSION['id'];
 $book_id = $_GET['id'];
 
-$my_sql = "SELECT review FROM review WHERE kullanici_id = :user_id AND books_id = :book_id";
+$my_sql = "SELECT review.review, books.title FROM review JOIN books ON books.id = review.books_id WHERE kullanici_id = :user_id AND books_id = :book_id";
 $my_sorgu = $DB->prepare($my_sql);
 $my_sorgu->bindParam(':user_id', $user_id);
 $my_sorgu->bindParam(':book_id', $book_id);
 $my_sorgu->execute();
 $my_review = $my_sorgu->fetchAll(PDO::FETCH_ASSOC);
 $old_review = $my_review[0]['review'];
+$book_name = $my_review[0]['title'];
 
 if(isset($_POST['submit_form'])){
     
@@ -35,7 +36,8 @@ if(isset($_POST['submit_form'])){
 #$kullanicilar = $SORGU->fetchAll(PDO::FETCH_ASSOC);
 
 echo "
-<br><br>
+<div class='text-center' style='color: #0F2C59;'> <h2><b>$book_name</b></h2> </div>
+<br>
 <div class='alert text-center' style='background-color: #FF9F9F' role='alert'>
 <b> YOUR COMMENT </b>
 </div>

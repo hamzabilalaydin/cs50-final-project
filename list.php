@@ -13,8 +13,7 @@ require 'sayfa.ust.php'; ?>
 
       <th>Name</th>
       <th>Email</th>
-      <th>Update</th>
-      <th>Delete</th>
+      <th>Delete User</th>
     </tr>
   </thead>
   <tbody>
@@ -36,8 +35,7 @@ require 'sayfa.ust.php'; ?>
     <tr>
       <td>{$kullanici['adsoyad']}</td>
       <td>{$kullanici['eposta']}</td>
-      <td><a href='update.php?id={$kullanici['id']}' class='btn btn-success btn-sm'>Update</a></td>
-      <td><a href='delete.php?id={$kullanici['id']}' class='btn btn-danger btn-sm'>Delete</a></td>
+        <td><a href='delete.php?id={$kullanici['id']}' class='btn btn-danger btn-sm'>Delete</a></td>
    </tr> 
   ";
     }

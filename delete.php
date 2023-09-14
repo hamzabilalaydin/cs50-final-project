@@ -23,6 +23,7 @@ $SORGU = $DB->prepare($sql);
 $SORGU->bindParam(':id', $id);
 
 $SORGU->execute();
+header('location: list.php');
 echo "User Deleted...";
 ?>
 

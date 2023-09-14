@@ -6,7 +6,7 @@
   <br><br><br><br><br><br><br>
   <hr>
   <br><br><br>
-  <p class="text-muted text-center">Please <b><i>"Call Me Maybe"</i></b> for your comments and suggestions</p>
+  <p class='text-center text-muted'>Please Contact<a class="link-opacity-75-hover link-underline link-underline-opacity-0" style='color: #0F2C59;' href="https://www.github.com/hamzabilalaydin"> <b><i>"hamzabilalaydin"</i></b></a> for your comments and suggestions</p>
   </div>
 </div>
 <br><br><br>
