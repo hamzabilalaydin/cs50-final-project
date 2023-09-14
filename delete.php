@@ -4,9 +4,9 @@ require 'yetki.kontrol.php';
 require 'sayfa.ust.php';
 
 if ($_SESSION['id'] == $_GET['id']) {
-  echo "<h1>Can Not Delete Yourself :)</h1>
+  echo "<h1 class='text-center'>Can Not Delete Yourself :)</h1>
   <div class='row text-start'>
-    <p><a href='list.php' class='btn btn-warning btn-md'> Back </a></p>
+    <p class='text-center'><a href='list.php' class='btn btn-md text-white' style='background-color:#0F2C59;'> Back </a></p>
   </div>
   ";
   
@@ -24,7 +24,6 @@ $SORGU->bindParam(':id', $id);
 
 $SORGU->execute();
 header('location: list.php');
-echo "User Deleted...";
 ?>
 
 <div class='row text-start'>
